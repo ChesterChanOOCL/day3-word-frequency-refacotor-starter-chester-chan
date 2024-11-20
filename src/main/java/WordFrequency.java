@@ -8,7 +8,7 @@ public class WordFrequency {
     }
 
 
-    public String getValue() {
+    public String getWord() {
         return this.word;
     }
 
