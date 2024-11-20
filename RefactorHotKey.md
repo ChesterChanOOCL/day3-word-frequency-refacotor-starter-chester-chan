@@ -1,4 +1,3 @@
-
 Invoke Refactoring Menu: Ctrl + Alt + Shift + T
 Reformat: Ctrl + alt + L 
 Make Regex : Ctrl + Alt + C
