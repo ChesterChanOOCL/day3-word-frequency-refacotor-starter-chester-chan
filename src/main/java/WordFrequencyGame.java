@@ -63,7 +63,17 @@ public class WordFrequencyGame {
                 .map(word -> new WordFrequency(word, 1))
                 .collect(Collectors.toList());
     }
+    private Map<String, Long> getWordCountMap(List<WordFrequency> wordFrequencies) {
+        return wordFrequencies.stream()
+                .collect(Collectors.groupingBy(WordFrequency::getWord, Collectors.counting()));
+    }
 
+    private List<WordFrequency> sortWordFrequencies(Map<String, Long> wordCountMap) {
+        return wordCountMap.entrySet().stream()
+                .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().intValue()))
+                .sorted((w1, w2) -> w2.getWordCount() - w1.getWordCount())
+                .collect(Collectors.toList());
+    }
 
     private Map<String, List<WordFrequency>> getMap(List<WordFrequency> inputList){
         //get the map for the next step of sizing the same word
