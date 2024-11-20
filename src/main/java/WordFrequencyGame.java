@@ -1,20 +1,26 @@
 import java.util.*;
 
 // useless if else
-// magic string
+// magic string  : highlight the regex Ctrl Alt C to make the REGEX magic string
 // stream insteaed of for loop
 // extract method
 // temp field? inputList = list;
 public class WordFrequencyGame {
+
+
+    public static final String REGEX = "\\s+";
+    public static final String LINE_BREAK = "\n";
+
+
     public String getWordFrequency(String sentence) {
 
-        if (sentence.split("\\s+").length == 1) {
+        if (sentence.split(REGEX).length == 1) {
             return sentence + " 1";
 
         } else {
             try {
                 //split the input string with 1 to n pieces of spaces
-                String[] words = sentence.split("\\s+");
+                String[] words = sentence.split(REGEX);
 
                 List<WordFrequency> inputList = new ArrayList<>();
                 for (String word : words) {
@@ -33,7 +39,7 @@ public class WordFrequencyGame {
 
                 inputList = list;
                 inputList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
-                StringJoiner joiner = new StringJoiner("\n");
+                StringJoiner joiner = new StringJoiner(LINE_BREAK);
 
                 for (WordFrequency wordFrequency : inputList) {
                     String wordWithFrequency = wordFrequency.getValue() + " " + wordFrequency.getWordCount();
