@@ -1,11 +1,7 @@
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
-// useless if else
-// magic string  : highlight the regex Ctrl Alt C to make the REGEX magic string
-// stream instead of for loop
-// extract method
-// temp field? inputList = list;
+
 public class WordFrequencyGame {
 
     public static final String REGEX = "\\s+";
