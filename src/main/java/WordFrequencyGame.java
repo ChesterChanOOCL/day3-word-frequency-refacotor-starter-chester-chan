@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class WordFrequencyGame {
-    public String getResult(String inputStr){
+    public String getResult(String inputStr) {
 
-        if (inputStr.split("\\s+").length==1) {
+        if (inputStr.split("\\s+").length == 1) {
             return inputStr + " 1";
 
         } else {
@@ -21,7 +21,7 @@ public class WordFrequencyGame {
 
                 List<Input> list = new ArrayList<>();
 
-                for (Map.Entry<String, List<Input>> entry : map.entrySet()){
+                for (Map.Entry<String, List<Input>> entry : map.entrySet()) {
                     Input input = new Input(entry.getKey(), entry.getValue().size());
                     list.add(input);
                 }
@@ -31,7 +31,7 @@ public class WordFrequencyGame {
                 StringJoiner joiner = new StringJoiner("\n");
 
                 for (Input w : inputList) {
-                    String s = w.getValue() + " " +w.getWordCount();
+                    String s = w.getValue() + " " + w.getWordCount();
                     joiner.add(s);
                 }
 
@@ -46,17 +46,15 @@ public class WordFrequencyGame {
     }
 
     // - naming of Map
-    private Map<String,List<Input>> getListMap(List<Input> inputList) {
+    private Map<String, List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> map = new HashMap<>();
-        for (Input input :  inputList){
+        for (Input input : inputList) {
 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-            if (!map.containsKey(input.getValue())){
+            if (!map.containsKey(input.getValue())) {
                 ArrayList arr = new ArrayList<>();
                 arr.add(input);
                 map.put(input.getValue(), arr);
-            }
-
-            else {
+            } else {
                 map.get(input.getValue()).add(input);
             }
         }
