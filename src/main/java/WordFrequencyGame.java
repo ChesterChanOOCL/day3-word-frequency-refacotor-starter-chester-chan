@@ -8,11 +8,10 @@ import java.util.stream.Collectors;
 // temp field? inputList = list;
 public class WordFrequencyGame {
 
-
     public static final String REGEX = "\\s+";
     public static final String LINE_BREAK = "\n";
-
-
+    public static final String CALCULATE_ERROR = "Calculate Error";
+    public static final String SPACE = " ";
 
     public String getWordFrequency(String sentence) {
         if (sentence.split(REGEX).length == 1) {
@@ -24,7 +23,7 @@ public class WordFrequencyGame {
                 List<WordFrequency> sortedWordFrequencies = sortWordFrequencies(wordCountMap);
                 return formatWordFrequencies(sortedWordFrequencies);
             } catch (Exception e) {
-                return "Calculate Error";
+                return CALCULATE_ERROR;
             }
         }
     }
@@ -47,7 +46,7 @@ public class WordFrequencyGame {
     }
     private String formatWordFrequencies(List<WordFrequency> wordFrequencies) {
         return wordFrequencies.stream()
-                .map(wordFrequency -> wordFrequency.getWord() + " " + wordFrequency.getWordCount())
+                .map(wordFrequency -> wordFrequency.getWord() + SPACE + wordFrequency.getWordCount())
                 .collect(Collectors.joining(LINE_BREAK));
     }
 
