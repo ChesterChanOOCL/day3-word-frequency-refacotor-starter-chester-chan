@@ -1,15 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
-import java.io.CharArrayWriter;
-
-import java.time.LocalDateTime;
+import java.util.*;
 
 public class WordFrequencyGame {
     public String getResult(String inputStr){
-
 
         if (inputStr.split("\\s+").length==1) {
             return inputStr + " 1";
@@ -27,7 +19,7 @@ public class WordFrequencyGame {
                 }
 
                 //get the map for the next step of sizing the same word
-                Map<String, List<Input>> map =getListMap(inputList);
+                Map<String, List<Input>> map = getListMap(inputList);
 
                 List<Input> list = new ArrayList<>();
                 for (Map.Entry<String, List<Input>> entry : map.entrySet()){
@@ -46,13 +38,13 @@ public class WordFrequencyGame {
                 return joiner.toString();
             } catch (Exception e) {
 
-
+                // exception can be more specific
                 return "Calculate Error";
             }
         }
     }
 
-
+    // - naming of Map
     private Map<String,List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> map = new HashMap<>();
         for (Input input :  inputList){
