@@ -34,12 +34,12 @@ public class WordFrequencyGame {
     private List<WordFrequency> sortWordFrequencies(Map<String, Long> wordCountMap) {
         return wordCountMap.entrySet().stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().intValue()))
-                .sorted((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount())
+                .sorted((currentWord, nextWord) -> nextWord.getCount() - currentWord.getCount())
                 .collect(Collectors.toList());
     }
     private String formatWordFrequencies(List<WordFrequency> wordFrequencies) {
         return wordFrequencies.stream()
-                .map(wordFrequency -> wordFrequency.getWord() + SPACE + wordFrequency.getWordCount())
+                .map(wordFrequency -> wordFrequency.getWord() + SPACE + wordFrequency.getCount())
                 .collect(Collectors.joining(LINE_BREAK1));
     }
 }
