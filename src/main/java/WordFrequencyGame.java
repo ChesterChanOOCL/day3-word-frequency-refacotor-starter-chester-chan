@@ -10,9 +10,6 @@ public class WordFrequencyGame {
     public static final String SPACE = " ";
 
     public String getWordFrequency(String sentence) {
-        if (sentence.split(REGEX).length == 1) {
-            return sentence + " 1";
-        } else {
             try {
                 List<WordFrequency> wordFrequencies = splitInputString(sentence);
                 Map<String, Long> wordCountMap = getWordCountMap(wordFrequencies);
@@ -21,7 +18,7 @@ public class WordFrequencyGame {
             } catch (Exception e) {
                 return CALCULATE_ERROR;
             }
-        }
+
     }
 
     private List<WordFrequency> splitInputString(String sentence) {
