@@ -19,7 +19,6 @@ public class WordFrequencyGame {
             } catch (Exception e) {
                 return CALCULATE_ERROR_MSG;
             }
-
     }
 
     private List<WordFrequency> splitInputString(String sentence) {
@@ -43,5 +42,4 @@ public class WordFrequencyGame {
                 .map(wordFrequency -> wordFrequency.getWord() + SPACE + wordFrequency.getWordCount())
                 .collect(Collectors.joining(LINE_BREAK1));
     }
-
 }
