@@ -6,6 +6,7 @@ public class WordFrequencyGame {
 
     public static final String REGEX = "\\s+";
     public static final String LINE_BREAK = "\n";
+    public static final String LINE_BREAK1 = LINE_BREAK;
     public static final String CALCULATE_ERROR_MSG = "Calculate Error";
     public static final String SPACE = " ";
 
@@ -34,13 +35,13 @@ public class WordFrequencyGame {
     private List<WordFrequency> sortWordFrequencies(Map<String, Long> wordCountMap) {
         return wordCountMap.entrySet().stream()
                 .map(entry -> new WordFrequency(entry.getKey(), entry.getValue().intValue()))
-                .sorted((w1, w2) -> w2.getWordCount() - w1.getWordCount())
+                .sorted((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount())
                 .collect(Collectors.toList());
     }
     private String formatWordFrequencies(List<WordFrequency> wordFrequencies) {
         return wordFrequencies.stream()
                 .map(wordFrequency -> wordFrequency.getWord() + SPACE + wordFrequency.getWordCount())
-                .collect(Collectors.joining(LINE_BREAK));
+                .collect(Collectors.joining(LINE_BREAK1));
     }
 
 }
